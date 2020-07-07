@@ -10,33 +10,32 @@
 # Create a class and move the code inside the class
 
 
-# class Fetch_Json:
-#     json_data= post_codes_req.json()
-#     # getattr (getter) retrieves all values
-#     def get_all_values(self, nested_dictionary):
-#         # for lopo iterates through the key:value pairs
-#         for key, value in nested_dictionary.items():
-#             if type(value) is dict:
-#                 self.get_all_values(value)
-#             else:
-#                 print(key, ":", value)
-#
-# json_reader = Fetch_Json()
-# json_reader.get_all_values(json_data)
-
 import requests
 import json
 post_codes_req = requests.get("https://api.postcodes.io/postcodes/se120nb")
 json_data = post_codes_req.json()
-
-class JSONReader:
+    # getattr (getter) retrieves all values
+class Fetch_Json_pairs:
     def get_all_values(self, nested_dictionary):
-        for key, value in nested_dictionary.items():
-            if type(value) is dict:
-                self.get_all_values(value)
+        # for loop iterates through the key:value pairs
+        for key, value in nested_dictionary.items(): #  items() method is used to return the list with all dictionary
+            # keys with values
+            if type(value) is dict:  # if the value of a key is a dictionary, then you have found a nested dictionary
+                self.get_all_values(value) # recall this method passing in that dictionary to iterate through it
             else:
-                print(key, ":", value)
+                print(key, ":", value) #  iterates through nested dictionaries until a value is given
+
+f = Fetch_Json_pairs() # An instance of the function is created
+
+f.get_all_values(json_data) # All values and nested dictionaries are returned
 
 
-json_reader = JSONReader()
-json_reader.get_all_values(json_data)
+  def get_all_values(self, nested_dictionary): # This is a method
+        for key, value in nested_dictionary.items():  # iterate through the key, value pairs in this dictionary
+            if type(value) is dict:  # if the value of a key is a dictionary, then you have found a nested dictionary
+                self.get_all_values(value)  # recall this method passing in that dictionary to iterate through it
+            else:
+                print(key, ":", value)  # if the value of the dictionary is not a dict carry on looping through
+
+json_reader = JSONReader()  # Create instance of this function
+json_reader.get_all_values(type_json)  # Returns all the values inside a dictionary including any nested dictionaries
