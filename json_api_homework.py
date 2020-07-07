@@ -9,7 +9,6 @@
 # Create a function to return the above values (Key:value)
 # Create a class and move the code inside the class
 
-
 import requests
 import json
 post_codes_req = requests.get("https://api.postcodes.io/postcodes/se120nb")
@@ -30,12 +29,4 @@ f = Fetch_Json_pairs() # An instance of the function is created
 f.get_all_values(json_data) # All values and nested dictionaries are returned
 
 
-  def get_all_values(self, nested_dictionary): # This is a method
-        for key, value in nested_dictionary.items():  # iterate through the key, value pairs in this dictionary
-            if type(value) is dict:  # if the value of a key is a dictionary, then you have found a nested dictionary
-                self.get_all_values(value)  # recall this method passing in that dictionary to iterate through it
-            else:
-                print(key, ":", value)  # if the value of the dictionary is not a dict carry on looping through
-
-json_reader = JSONReader()  # Create instance of this function
-json_reader.get_all_values(type_json)  # Returns all the values inside a dictionary including any nested dictionaries
+  (type_json)  # Returns all the values inside a dictionary including any nested dictionaries
