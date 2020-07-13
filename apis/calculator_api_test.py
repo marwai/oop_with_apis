@@ -1,13 +1,13 @@
 # import unit test module fail-implement-refactor
 import unittest
-
+import pytest
 # purposely fail, test correct method and then refactor to clean up the code
-from  calculator_api import Functions
+# from  calculator_api import Functions
 
 class Calc_Test(unittest.TestCase):
 
     # f refers to Functions class in the parent class calculator_api. Aliasing used to shorten the class name
-    f = Functions()
+    # f = Functions()
 
 
     def test_sqrt(self):
